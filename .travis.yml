@@ -1,0 +1,15 @@
+script:
+  - git clone https://github.com/sotetsuk/slides-test.git
+  - cd slides-test
+  - curl https://docs.google.com/presentation/d/1s71LVtOyWlVL4WKCOks9dIgpW3XqviBQkBhMzFkbQFE/export/pdf -o test.pdf
+  - convert test.pdf test.png
+  - ls
+  - git config user.name "Travis-CI"
+  - git config user.email "koyamada-s@sys.i.kyoto-u.ac.jp"
+  - git add test.png
+  - git commit -m "update test.png"
+  - git push https://${GH_TOKEN}@github.com/sotetsuk/slides-test.git master
+
+env:
+  global:
+    - secure: "AUsdJyHeo0KqNYYDbl9PoH4Te5iI6QjXfN3Gaq7Vb5D1k9NdABxVlAQL5LWslq2Ox7Jg/xBv6VLWxxi/F60v4muVmSgWq68iu243AG7qJuBVLDRXPpo3tKaApOl8awKw0wno3FWra1ldkVHuyfbH4j1SBxOl1SHf6UN58pns4z/Ny8uhJCuKd8+LlUsJ5Ob7yChufwEfOEhfCy6A2XJ6XPRla5bbxGuPVwUSSvss+MtZ0nVutsU8jZe5SpVD+zOY04r3HU6D9OGNpl+jRcj54aiYalIz5STIuDAtOzOS0it/sIHpvjkE71XSR5jtYZaI+Egd2W/0ZInLBVfTsth+r9UZOmQgC2IYyucQdhBADGNmkMe9UtU7IrkS7/8XdE4dHL2mA5xV+Sf0f0PvqKy3lJnHofuWpnvpdCmBsWkOkaIoLFeNfeNPz6KUn/gZWECPyd7oiNN4up9qmjmJC7V3OLyFgSxygqbmI8OaPGUMu4KZBSIL3LPVvRS6iAv8SCwKHmY9snol0Il0Ll9/bUsDXg6DTFjdZNX/GfHtk+o6yrqN/60md0Kgij/LykcXNROVgn8acRCi5uaR+7y8ryUj2ZTpXxZ2PPygEh4UZDMFeSR94PpLTEpvaST7qQjJokHZ4KMGSh7LKR9M9geSKNJqRLYDSvggCNPt8PnC+L+mmtA="
