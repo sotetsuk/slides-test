@@ -1,14 +1,5 @@
 script:
-  - git clone https://github.com/sotetsuk/slides-test.git
-  - cd slides-test
-  - curl https://docs.google.com/presentation/d/1s71LVtOyWlVL4WKCOks9dIgpW3XqviBQkBhMzFkbQFE/export/pdf -o test.pdf
-  - convert test.pdf test.png
-  - ls
-  - git config user.name "Travis-CI"
-  - git config user.email "koyamada-s@sys.i.kyoto-u.ac.jp"
-  - git add test.png
-  - git commit -m "update test.png"
-  - git push https://${GH_TOKEN}@github.com/sotetsuk/slides-test.git master
+  - sh update_tmb.sh
 
 env:
   global:
